@@ -22,4 +22,6 @@ class GeoDash{
     fill(c);
    triangle(120, 300, 232, 80, 344, 300);
    stroke(255);}
+   
+   
 }
