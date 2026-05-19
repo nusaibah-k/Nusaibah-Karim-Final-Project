@@ -18,6 +18,32 @@ class Player{
     private double rotation;
     private boolean alive;
     
+    void jump{
     
+    }
+    
+    void applyGravity{
+    
+    }
+    
+    void update{
+    
+    }
+    
+    void display{
+    
+    }
+    
+    boolean collide (Obstacle o){
+    
+    }
+    
+    void die{
+    
+    }
+    
+    void reset{
+    
+    }
     
 }
