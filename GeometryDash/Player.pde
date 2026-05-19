@@ -1,4 +1,4 @@
-class Player{
+public class Player{
 
   // Position
     private double x;
