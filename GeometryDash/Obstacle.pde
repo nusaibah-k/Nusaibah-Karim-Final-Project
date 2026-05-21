@@ -15,21 +15,17 @@
      speed = 6;
     }
     
-  public void update(){
-  
-  }
+  public void update(){moveLeft();}
   
   public void display(){
+    fill(255, 0, 0);
+    rect((float)x, (float)y, width, height);
   
   }
   
-  public void moveLeft(){
+  public void moveLeft(){x -= speed;}
   
-  }
-  
-  public boolean collide(Player p){
-  
-  }
+  public boolean collide(Player p){return p.getX() + p.getWidth() > x && p.getX() < x + width && p.getY() + p.getHeight() > y && p.getY() < y + height;}
 
 
 }
