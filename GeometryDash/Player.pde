@@ -1,4 +1,4 @@
-public class Player{
+class Player{
 
   // Position
     private double x;
@@ -39,14 +39,14 @@ public class Player{
       isGrounded = false;}
     }
     
-    void applyGravity{velocityY += gravity;}
+    void applyGravity(){velocityY += gravity;}
     
-    void update{
+    void update(){
      y += velocityY;
      if (!isGrounded) {rotation += 0.1;}
     }
     
-    void display{
+    void display(){
       fill(0, 255, 255);
       stroke(255);
       rect((float)x,
@@ -66,9 +66,9 @@ public class Player{
  } 
     */
     
-    void die{alive = false;}
+    void die(){alive = false;}
     
-    void reset{
+    void reset(){
        x = 150;
        y = 500;
        velocityY = 0;

@@ -1,4 +1,4 @@
-public class Obstacle{
+/* public class Obstacle{
   
   private double x;
   private double y;
