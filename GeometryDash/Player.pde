@@ -31,6 +31,15 @@ class Player{
         alive = true;
     }
     
+    double getX(){return x;}
+    
+    double getY(){return y;}
+    
+    double getWidth(){return width;}
+    
+    double getHeight(){return height;}
+    
+    
     // problem: finding good initial values for player constructor
     
     void jump(){

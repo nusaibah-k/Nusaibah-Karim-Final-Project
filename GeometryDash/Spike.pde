@@ -21,5 +21,17 @@ public boolean collide(Player p){}
      speed = 6;
     }
     
- 
+  public void update(){moveLeft();}
+  
+  public void display(){
+    fill(255, 0, 0);
+    triangle(120, 200, 120, 200, 170, 140);
+  }
+  
+  public void moveLeft(){
+  x -= speed;}
+  
+  public boolean collide(Player p){
+  return p.getX() + p.getWidth() > x && p.getX() < x + width && p.getY() + p.getHeight() > y && p.getY() < y + height;}
+
 }
