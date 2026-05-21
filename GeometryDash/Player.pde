@@ -58,13 +58,13 @@ class Player{
          ellipse((float)x + 35,
             (float)y + 15,8,8);}
     
-   /* boolean collide (Obstacle o){
+   boolean collide (Obstacle o){
       return x + width > o.getX() &&
        x < o.getX() + o.getWidth() &&
        y + height > o.getY() &&
        y < o.getY() + o.getHeight();
  } 
-    */
+    
     
     void die(){alive = false;}
     

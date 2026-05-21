@@ -1,4 +1,4 @@
-/* public class Obstacle{
+ public class Obstacle{
   
   private double x;
   private double y;
@@ -6,6 +6,15 @@
   private int height;
   private double speed;
   
+  
+   public Obstacle(double x, double y, int width, int height) {
+     this.x = x;
+     this.y = y;
+     this.width = width;
+     this.height = height;
+     speed = 6;
+    }
+    
   public void update(){
   
   }
