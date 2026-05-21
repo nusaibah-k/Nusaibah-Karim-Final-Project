@@ -42,8 +42,13 @@ class Player{
     void applyGravity(){velocityY += gravity;}
     
     void update(){
-     y += velocityY;
-     if (!isGrounded) {rotation += 0.1;}
+      y += velocityY;
+      if (!isGrounded) {rotation += 0.1;}
+     if (y >= 500) {
+       y = 500;
+       velocityY = 0;
+       isGrounded = true;
+    }
     }
     
     void display(){
@@ -57,14 +62,6 @@ class Player{
          ellipse((float)x + 15, (float)y + 15, 8,8);
          ellipse((float)x + 35,
             (float)y + 15,8,8);}
-    
-   /* boolean collide (Obstacle o){
-      return x + width > o.getX() &&
-       x < o.getX() + o.getWidth() &&
-       y + height > o.getY() &&
-       y < o.getY() + o.getHeight();
- } 
-    */
     
     void die(){alive = false;}
     
