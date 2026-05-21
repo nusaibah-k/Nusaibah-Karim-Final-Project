@@ -18,13 +18,28 @@ public class Player{
     private double rotation;
     private boolean alive;
     
+     public Player(double x, double y) {
+        this.x = x;
+        this.y = y;
+        width = 50;
+        height = 50;
+        velocityY = 0;
+        gravity = 0.8;
+        jumpForce = -14;
+        isGrounded = true;
+        rotation = 0;
+        alive = true;
+    }
+    
+    // problem: finding good initial values for player constructor
+    
     void jump{
-    
+     if (isGrounded && alive) {
+      velocityY = jumpForce;
+      isGrounded = false;}
     }
     
-    void applyGravity{
-    
-    }
+    void applyGravity{velocityY += gravity;}
     
     void update{
     
