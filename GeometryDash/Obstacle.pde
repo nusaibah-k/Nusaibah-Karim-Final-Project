@@ -25,6 +25,10 @@
   
   public void moveLeft(){x -= speed;}
   
+  public double getX(){return x;}
+  
+  public double getY(){return y;}
+  
   public boolean collide(Player p){return p.getX() + p.getWidth() > x && p.getX() < x + width && p.getY() + p.getHeight() > y && p.getY() < y + height;}
 
 
