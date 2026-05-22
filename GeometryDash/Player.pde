@@ -28,8 +28,7 @@ class Player{
         jumpForce = -14;
         isGrounded = true;
         rotation = 0;
-        alive = true;
-    }
+        alive = true;}
     
     double getX(){return x;}
     
