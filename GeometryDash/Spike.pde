@@ -9,9 +9,6 @@ public class Spike extends Obstacle{
   
  private int damage;
  
-public void display(){}
-
-public boolean collide(Player p){}
 
    public Spike(double x, double y, int width, int height) {
      this.x = x;

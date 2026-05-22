@@ -7,6 +7,16 @@
   private double speed;
   
   
+  public Obstacle(){
+    x=0;
+    y=0;
+    width=10;
+    height =10;
+    speed=6;
+  
+  }
+  
+  
    public Obstacle(double x, double y, int width, int height) {
      this.x = x;
      this.y = y;
@@ -22,6 +32,13 @@
     rect((float)x, (float)y, width, height);
   
   }
+  
+  int getWidth(){
+  return width;
+  }
+  
+  int getHeight(){
+    return height;}
   
   public void moveLeft(){x -= speed;}
   

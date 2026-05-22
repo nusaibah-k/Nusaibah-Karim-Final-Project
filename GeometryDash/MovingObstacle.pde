@@ -5,7 +5,7 @@
   private int width;
   private int height;
   private double speed;
-  
+ 
   
    public MovingObstacle(double x, double y, int width, int height) {
      this.x = x;

@@ -34,9 +34,9 @@ class Player{
     
     double getY(){return y;}
     
-    double getWidth(){return width;}
+    int getWidth(){return width;}
     
-    double getHeight(){return height;}
+    int getHeight(){return height;}
     
     
     // problem: finding good initial values for player constructor
