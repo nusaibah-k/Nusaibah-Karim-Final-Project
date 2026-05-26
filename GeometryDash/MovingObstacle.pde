@@ -1,4 +1,4 @@
- public class MovingObstacle{
+ class MovingObstacle extends Obstacle{
   
   private double x;
   private double y;
@@ -19,10 +19,15 @@
   
   public void display(){
     fill(255, 0, 0);
-    rect((float)x, (float)y, width, height);
+    rect((float)x, (float)y, width, height);}
   
-  }
-  
+  void movePattern() {
+    if (direction == 1){y += moveSpeed;}
+    else {y -= moveSpeed;}
+    if (y >= 500){direction = -1;}
+    if (y <= 350){direction = 1;}
+    }
+    
   public void moveLeft(){x -= speed;}
   
   public double getX(){return x;}
