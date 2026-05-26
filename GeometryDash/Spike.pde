@@ -1,34 +1,21 @@
 public class Spike extends Obstacle{
-  
-  private double x;
-  private double y;
-  private int width;
-  private int height;
-  private double speed;
-  
-  
- private int damage;
  
-
    public Spike(double x, double y, int width, int height) {
-     this.x = x;
-     this.y = y;
-     this.width = width;
-     this.height = height;
-     speed = 6;
+     super(x, y, width, height);
     }
     
-  public void update(){moveLeft();}
   
   public void display(){
-    fill(255, 0, 0);
-    triangle(120, 200, 120, 200, 170, 140);
+  fill(255, 0, 0);
+  triangle((float)getX(),
+  (float)(getY() + getHeight()),
+  (float)(getX() + getWidth() / 2),
+  (float)getY(), (float)(getX() + getWidth()), (float)(getY() + getHeight()));
   }
   
-  public void moveLeft(){
-  x -= speed;}
   
   public boolean collide(Player p){
-  return p.getX() + p.getWidth() > x && p.getX() < x + width && p.getY() + p.getHeight() > y && p.getY() < y + height;}
-
-}
+   return p.getX() + p.getWidth() > getX() &&
+               p.getX() < getX() + getWidth() &&
+               p.getY() + p.getHeight() > getY() &&
+               p.getY() < getY() + getHeight();}}
