@@ -9,10 +9,10 @@
         direction = 1;
     }
    
-   void update() {
-     moveLeft();
-     movePattern();
-    }
+   public void update() {
+    super.update();
+    movePattern();
+}
 
   
   public void display(){

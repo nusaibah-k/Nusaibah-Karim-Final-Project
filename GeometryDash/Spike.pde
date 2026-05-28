@@ -13,9 +13,10 @@ public class Spike extends Obstacle{
   (float)getY(), (float)(getX() + getWidth()), (float)(getY() + getHeight()));
   }
   
-  
-  public boolean collide(Player p){
-   return p.getX() + p.getWidth() > getX() &&
-               p.getX() < getX() + getWidth() &&
-               p.getY() + p.getHeight() > getY() &&
-               p.getY() < getY() + getHeight();}}
+ 
+public boolean collide(Player p){
+    return super.collide(p);
+}
+             
+           
+         }
