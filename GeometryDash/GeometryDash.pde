@@ -1,18 +1,13 @@
+import java.util.ArrayList;
+
 Player player;
-
-Obstacle spike;
-
-MovingObstacle movingObstacle;
 
 void setup() {
 
   size(1200, 700);
 
   player = new Player(150, 500);
-
-  spike = new Spike(900, 500, 50, 50);
-
-  movingObstacle = new MovingObstacle(700, 400, 60, 60);
+  obstacles = new ArrayList<Obstacle>();
 }
 
 void draw() {
@@ -31,26 +26,24 @@ void draw() {
 
   player.display();
 
-  // Spike
-  spike.update();
+// Spawn obstacle every 2 seconds
+if (frameCount % 120 == 0) {obstacles.add(new Spike(1200, 500, 50, 50));}
 
-  spike.display();
+// Obstacles
+for (int i = 0; i < obstacles.size(); i++) {
 
-  // Moving obstacle
-  movingObstacle.update();
+  Obstacle o = obstacles.get(i);
 
-  movingObstacle.display();
+  o.update();
 
-  // Collision checks
-  if (player.collide(spike)) {
+  o.display();
 
-    player.reset();
+  // Collision
+  if (player.collide(o)) {
+
+    player.die();
   }
-
-  if (player.collide(movingObstacle)) {
-
-    player.reset();
-  }
+}
 }
 
 void keyPressed() {
