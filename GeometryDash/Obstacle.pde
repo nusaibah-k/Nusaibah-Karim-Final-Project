@@ -11,7 +11,7 @@
     y=0;
     width=10;
     height =10;
-    speed=6;
+    speed=1;
   }
   
    public Obstacle(double x, double y, int width, int height) {

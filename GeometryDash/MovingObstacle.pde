@@ -5,7 +5,7 @@
   
    public MovingObstacle(double x, double y, int width, int height) {
     super(x, y, width, height);
-        moveSpeed = 3;
+        moveSpeed = 1;
         direction = 1;
     }
    
