@@ -88,4 +88,7 @@ class Player{
        alive = true;
        isGrounded = true;
     }
+   
+   boolean isAlive(){return alive;}
+    
 }
