@@ -28,8 +28,16 @@ class Player{
         jumpForce = -14;
         isGrounded = true;
         rotation = 0;
-        alive = true;
-    }
+        alive = true;}
+    
+    double getX(){return x;}
+    
+    double getY(){return y;}
+    
+    int getWidth(){return width;}
+    
+    int getHeight(){return height;}
+    
     
     // problem: finding good initial values for player constructor
     
@@ -62,6 +70,13 @@ class Player{
          ellipse((float)x + 15, (float)y + 15, 8,8);
          ellipse((float)x + 35,
             (float)y + 15,8,8);}
+    
+   boolean collide (Obstacle o){
+      return x + width > o.getX() &&
+       x < o.getX() + o.getWidth() &&
+       y + height > o.getY() &&
+       y < o.getY() + o.getHeight();
+ } 
     
     void die(){alive = false;}
     
