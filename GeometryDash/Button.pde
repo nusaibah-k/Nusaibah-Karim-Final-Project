@@ -5,9 +5,10 @@ private double height;
 private double width;
 
 
-public Button(double height, double width){
-  this.height=height;
-  this.width=width; 
+public Button(){
+  height = 40;
+  width = 50;
+  color=
 }
 
 
@@ -16,6 +17,14 @@ public double getHeight(){
 
 public double getWidth(){return width;}
 
+public void setHeight(double h){ 
+  height=h;
+}
 
+
+public void setWidth(double w){
+  width=w;
+  
+void display(){}
 
 }

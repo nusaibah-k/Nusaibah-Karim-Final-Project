@@ -30,8 +30,12 @@ class Particle{
    public void setY(double num){y=num;}
   
    public void setX(double num){x=num;}
-  
-  
-
+   
+   void display(){
+     fill(0, 255, 255);
+     stroke(255);
+     rect((float)x, (float)y, width, height);
+   }
+ 
 
 }
