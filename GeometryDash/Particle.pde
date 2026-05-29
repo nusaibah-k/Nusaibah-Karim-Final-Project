@@ -8,12 +8,12 @@ class Particle{
   
   
   public Particle(){
-  
-  
-  
-  
+    x=0;
+    y=0;
+    width=10;
+    height =10;
+    speed=1;
   }
-  
   
    double getX(){return x;}
     
