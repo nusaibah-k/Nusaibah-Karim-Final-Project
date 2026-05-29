@@ -6,6 +6,15 @@ class Particle{
   private int height;
   private double speed;
   
+  
+  public Particle(){
+  
+  
+  
+  
+  }
+  
+  
    double getX(){return x;}
     
    double getY(){return y;}
@@ -13,6 +22,15 @@ class Particle{
    int getWidth(){return width;}
     
    int getHeight(){return height;}
+   
+   public void moveLeft(){x -= speed;}
+   
+   public void update(){moveLeft();}
+   
+   public void setY(double num){y=num;}
+  
+   public void setX(double num){x=num;}
+  
   
 
 
