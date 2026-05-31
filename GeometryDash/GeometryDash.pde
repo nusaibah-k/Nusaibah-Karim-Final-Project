@@ -3,6 +3,8 @@ import java.util.ArrayList;
 Player player;
 ArrayList<Obstacle> obstacles;
 
+ArrayList<Particle> particles;
+
 void setup() {
   size(1200, 700);
   player = new Player(150, 500);
