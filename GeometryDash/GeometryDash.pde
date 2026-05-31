@@ -5,8 +5,31 @@ ArrayList<Obstacle> obstacles;
 
 ArrayList<Particle> particles;
 
-for (int i = 0; i < 12; i++) {particles.add( new Particle(random(width), random(100, 450), random(40, 100), random(40, 100), random(1, 3), color(120, 0, 255, 80)));
+for (int i = 0; i < 10; i++) {
+  particles.add(
+    new Particle(
+      random(width),
+      random(100, 450),
+      random(40, 90),
+      random(40, 90),
+      random(1, 3),
+      color(120, 0, 255, 80)
+    )
+  );
+}
 
+for (int i = 0; i < 5; i++) {
+  particles.add(
+    new Particle(
+      random(width),
+      random(50, 250),
+      random(60, 120),
+      random(60, 120),
+      random(0.5, 2),
+      color(0, 255, 255, 60)
+    )
+  );
+}
 void setup() {
   size(1200, 700);
   player = new Player(150, 500);
@@ -14,7 +37,18 @@ void setup() {
 
 void draw() {
 
-background(30);
+// Geometry Dash style background
+background(30, 0, 60);
+
+// Background squares
+for (Particle p : particles) {
+  p.update();
+  p.display();
+}
+
+// Dark play area
+fill(50, 0, 100, 100);
+rect(0, 0, width, 550);
 
   // Ground
   fill(70);
