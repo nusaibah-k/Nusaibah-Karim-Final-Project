@@ -17,13 +17,6 @@ class Particle{
     this.c = c;
   }
   
-   double getX(){return x;}
-    
-   double getY(){return y;}
-    
-   int getWidth(){return width;}
-    
-   int getHeight(){return height;}
    
    public void moveLeft(){
    x -= speed;
