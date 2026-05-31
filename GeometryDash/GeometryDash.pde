@@ -5,6 +5,8 @@ ArrayList<Obstacle> obstacles;
 
 ArrayList<Particle> particles;
 
+for (int i = 0; i < 12; i++) {particles.add( new Particle(random(width), random(100, 450), random(40, 100), random(40, 100), random(1, 3), color(120, 0, 255, 80)));
+
 void setup() {
   size(1200, 700);
   player = new Player(150, 500);
