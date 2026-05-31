@@ -1,10 +1,11 @@
 class Particle{
 
-  private double x;
-  private double y;
-  private int width;
-  private int height;
-  private double speed;
+  private float x;
+  private float y;
+  private float width;
+  private float height;
+  private float speed;
+  private color c;
   
   
   public Particle(){
