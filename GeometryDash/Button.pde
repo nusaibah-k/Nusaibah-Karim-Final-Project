@@ -1,29 +1,17 @@
 class Button{
 
-private String c;
-private double height;
-private double width;
+  private float x;
+  private float y;
+  private float width;
+  private float height;
+  private String text;
 
-
-public Button(){
-  height = 40;
-  width = 50;
-}
-
-
-public double getHeight(){
-  return height;}
-
-public double getWidth(){return width;}
-
-public void setHeight(double h){ 
-  height=h;
-}
-
-
-public void setWidth(double w){
-  width=w;
+  Button(float x, float y, float width, float height, String text) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.text = text;
+  }
   
-void display(){}
-
 }
