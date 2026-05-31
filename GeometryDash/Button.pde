@@ -1,6 +1,6 @@
 class Button{
 
-private String color;
+private String c;
 private double height;
 private double width;
 
@@ -8,7 +8,6 @@ private double width;
 public Button(){
   height = 40;
   width = 50;
-  color=
 }
 
 

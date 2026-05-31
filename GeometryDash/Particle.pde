@@ -8,12 +8,13 @@ class Particle{
   private color c;
   
   
-  public Particle(){
-    x=0;
-    y=0;
-    width=10;
-    height =10;
-    speed=1;
+  Particle(float x, float y, float width, float height, float speed, color c) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.speed = speed;
+    this.c = c;
   }
   
    double getX(){return x;}
@@ -24,7 +25,11 @@ class Particle{
     
    int getHeight(){return height;}
    
-   public void moveLeft(){x -= speed;}
+   public void moveLeft(){
+   x -= speed;
+   // Issue to note: Resetting particle when it leaves the screen
+    if (x + width < 0) {x = width;}
+  }
    
    public void update(){moveLeft();}
    
@@ -32,11 +37,9 @@ class Particle{
   
    public void setX(double num){x=num;}
    
-   void display(){
-     fill(0, 255, 255);
-     stroke(255);
-     rect((float)x, (float)y, width, height);
+ void display() {
+    noStroke();
+    fill(c);
+    rect(x, y, width, height);
+ }
    }
- 
-
-}
