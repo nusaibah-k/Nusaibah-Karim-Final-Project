@@ -14,4 +14,19 @@ class Button{
     this.text = text;
   }
   
+   void display() {
+    fill(50, 150, 255);
+    rect(x, y, width, height, 10);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    text(text, x + width / 2, y + height / 2);
+  }
+
+  boolean isClicked() {
+    return mouseX >= x &&
+           mouseX <= x + width &&
+           mouseY >= y &&
+           mouseY <= y + height;
+  }
 }

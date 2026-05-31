@@ -26,10 +26,6 @@ class Particle{
    
    public void update(){moveLeft();}
    
-   public void setY(double num){y=num;}
-  
-   public void setX(double num){x=num;}
-   
  void display() {
     noStroke();
     fill(c);
