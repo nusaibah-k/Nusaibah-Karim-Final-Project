@@ -44,8 +44,8 @@
   
   public boolean collide(Player p){
   return 
-    p.getX() + p.getWidth()-2 > x 
-    && p.getX() < x + width && p.getY()-2 + p.getHeight() > y 
+    p.getX() + p.getWidth()> x 
+    && p.getX() < x + width && p.getY() + p.getHeight() > y 
     && p.getY() < y + height;
   }
  }

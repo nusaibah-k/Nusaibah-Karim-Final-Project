@@ -73,7 +73,10 @@ if (frameCount % 120 == 0) {obstacles.add(new Spike(1200, 500, 50, 50));}
     o.display();
 
   // Collision
-if (player.collide(o)){player.die();}}
+if (o.collide(player)){
+  player.die();
+}}
+
 if (!player.isAlive()) {
   fill(255);
   textSize(50);
