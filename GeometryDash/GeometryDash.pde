@@ -5,6 +5,9 @@ ArrayList<Obstacle> obstacles;
 ArrayList<Particle> particles;
 Counter counter;
 Button restartButton;
+SoundManager soundManager;
+boolean winPlayed = false;
+boolean losePlayed = false;
 int nextSpawn;
 
 void setup() {
@@ -15,6 +18,8 @@ obstacles = new ArrayList<Obstacle>();
 particles = new ArrayList<Particle>();
 counter = new Counter(10);
 restartButton = new Button(500, 350, 200, 60, "RESTART");
+soundManager = new SoundManager(this);
+soundManager.playMusic();
 
  for (int i = 0; i < 10; i++) {
     particles.add(
@@ -51,16 +56,17 @@ if (counter.reachedGoal()) {
 }
 
 if (!player.isAlive()) {
+    if (!losePlayed) {
+    soundManager.stopMusic();
+    soundManager.playLose();
+    losePlayed = true;}
 
   background(30, 0, 60);
-
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(50);
   text("GAME OVER", width/2, 250);
-
   restartButton.display();
-
   return;
 }
 
