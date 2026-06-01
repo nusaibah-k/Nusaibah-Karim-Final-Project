@@ -11,5 +11,13 @@ class SoundManager {
     loseSound = new SoundFile(app, "lose.mp3");
     winSound = new SoundFile(app, "win.mp3");
   }
+  
+  
+  void playMusic(){if (!music.isPlaying()) {music.loop();}}
 
+  void playLose() {loseSound.play();}
+
+  void playWin() {winSound.play();}
+
+  void stopMusic() {music.stop();}
 }
