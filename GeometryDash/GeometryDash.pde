@@ -2,14 +2,15 @@ import java.util.ArrayList;
 
 Player player;
 ArrayList<Obstacle> obstacles;
-
 ArrayList<Particle> particles;
+Counter counter;
 
 void setup() {
 size(1200, 700);
 player = new Player(150, 500);
 obstacles = new ArrayList<Obstacle>();
 particles = new ArrayList<Particle>();
+counter = new Counter(10);
 
  for (int i = 0; i < 10; i++) {
     particles.add(
@@ -39,6 +40,15 @@ particles = new ArrayList<Particle>();
 }
 
 void draw() {
+  
+  if (counter.reachedGoal()) {
+    drawRainbow();
+    fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(80);
+  text("YOU WIN!", width/2, height/2);
+  return;
+}
 
 // Geometry Dash style background
 background(30, 0, 60);
@@ -67,20 +77,31 @@ rect(0, 0, width, 550);
 if (frameCount % 120 == 0) {
 int obstacleType = (int)random(2);
 if (obstacleType == 0) {obstacles.add(new Spike(1200, 500, 50, 50));} 
-else {obstacles.add(new MovingObstacle(1200, 400, 50, 50));}
-
+else {obstacles.add(new MovingObstacle(1200, 400, 50, 50));
+  }
 }
 
-// Obstacles
-  for (int i = 0; i < obstacles.size(); i++){
-    Obstacle o = obstacles.get(i);
-    o.update();
-    o.display();
+for (int i = 0; i < obstacles.size(); i++) {
+
+  Obstacle o = obstacles.get(i);
+
+  o.update();
+  o.display();
 
   // Collision
-if (o.collide(player)){
-  player.die();
-}}
+  if (o.collide(player)) {
+    player.die();
+  }
+
+  // Obstacle passed off screen
+  if (o.getX() + o.getWidth() < 0) {
+    counter.addPoint();
+    obstacles.remove(i);
+    i--;
+  }
+}
+counter.display();
+
 
 if (!player.isAlive()) {
   fill(255);
@@ -88,6 +109,24 @@ if (!player.isAlive()) {
   text("GAME OVER", 400, 300);
   noLoop();
 }}
+
+void drawRainbow() {
+
+  int stripeHeight = 50;
+
+  for (int y = 0; y < height; y += stripeHeight) {
+
+    float hue = (frameCount * 3 + y) % 255;
+
+    colorMode(HSB, 255);
+
+    fill(hue, 255, 255);
+
+    rect(0, y, width, stripeHeight);
+  }
+
+  colorMode(RGB, 255);
+}
 
 void keyPressed(){
   if (key == ' ' || keyCode == UP){
