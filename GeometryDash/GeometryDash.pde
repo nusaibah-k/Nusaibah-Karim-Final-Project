@@ -4,6 +4,7 @@ Player player;
 ArrayList<Obstacle> obstacles;
 ArrayList<Particle> particles;
 Counter counter;
+Button restartButton;
 int nextSpawn;
 
 void setup() {
@@ -13,6 +14,7 @@ player = new Player(150, 500);
 obstacles = new ArrayList<Obstacle>();
 particles = new ArrayList<Particle>();
 counter = new Counter(10);
+restartButton = new Button(500, 350, 200, 60, "RESTART");
 
  for (int i = 0; i < 10; i++) {
     particles.add(
@@ -46,6 +48,20 @@ void draw() {
 if (counter.reachedGoal()) {
     drawWinScreen();
     return;
+}
+
+if (!player.isAlive()) {
+
+  background(30, 0, 60);
+
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(50);
+  text("GAME OVER", width/2, 250);
+
+  restartButton.display();
+
+  return;
 }
 
 // Geometry Dash style background
@@ -100,13 +116,7 @@ for (int i = 0; i < obstacles.size(); i++) {
 }
 counter.display();
 
-
-if (!player.isAlive()) {
-  fill(255);
-  textSize(50);
-  text("GAME OVER", 400, 300);
-  noLoop();
-}}
+}
 
 void drawWinScreen() {
 
@@ -147,7 +157,32 @@ void drawWinScreen() {
   text("Thanks for playing", width/2, 340);
 }
 
-void keyPressed(){
-  if (key == ' ' || keyCode == UP){
-    player.jump();}
+
+void restartGame() {
+
+  player = new Player(150, 500);
+
+  obstacles.clear();
+
+  counter = new Counter(10);
+
+  nextSpawn = frameCount + (int)random(60, 180);
+}
+
+
+
+void keyPressed() {
+  if (player.isAlive() &&
+      (key == ' ' || keyCode == UP)) {
+    player.jump();
+  }
+}
+
+void mousePressed() {
+
+  if (!player.isAlive() &&
+      restartButton.isClicked()) {
+
+    restartGame();
+  }
 }
