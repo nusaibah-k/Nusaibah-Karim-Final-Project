@@ -7,7 +7,7 @@ class SoundManager {
   private SoundFile winSound;
 
   SoundManager(PApplet app) {
-    music = new SoundFile(app, "music.mp3");
+    music = new SoundFile(app, "background.mp3");
     loseSound = new SoundFile(app, "lose.mp3");
     winSound = new SoundFile(app, "win.mp3");
   }
@@ -18,6 +18,6 @@ class SoundManager {
   void playLose() {loseSound.play();}
 
   void playWin() {winSound.play();}
-
+  
   void stopMusic() {music.stop();}
 }
