@@ -7,12 +7,12 @@ public MovingObstacle(double x, double y, int width, int height) {
   super(
     x,
     y,
-    (int)random(120, 250),
-    (int)random(30, 60)
+    (int)random(60,120),
+    (int)random(80, 140)
   );
 
-  moveSpeed = 1;
-  direction = 1;
+moveSpeed = random(2, 5);  
+direction = 1;
 }
    
    public void update(){
@@ -20,12 +20,12 @@ public MovingObstacle(double x, double y, int width, int height) {
     movePattern();}
 
   public void display(){
-    fill(0, 100, 0); // dark green
+    fill(180, 0, 255);
     rect((float)getX(), (float)getY(), getWidth(), getHeight());}
   
   void movePattern(){
     setY(getY() + moveSpeed * direction);
     if (getY() >= 500) {direction = -1;}
-    if (getY() <= 350) {direction = 1;}
+    if (getY() <= 430) {direction = 1;}
     }
 }
