@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import processing.sound.*;
 
 Player player;
 ArrayList<Obstacle> obstacles;
@@ -51,6 +52,10 @@ soundManager.playMusic();
 void draw() {
   
 if (counter.reachedGoal()) {
+  if (!winPlayed){
+      soundManager.stopMusic();
+      soundManager.playWin();
+      winPlayed = true;}
     drawWinScreen();
     return;
 }
@@ -165,15 +170,13 @@ void drawWinScreen() {
 
 
 void restartGame() {
-
   player = new Player(150, 500);
-
   obstacles.clear();
-
   counter = new Counter(10);
-
   nextSpawn = frameCount + (int)random(60, 180);
-}
+  winPlayed = false;
+  losePlayed = false;
+  soundManager.playMusic();}
 
 
 
