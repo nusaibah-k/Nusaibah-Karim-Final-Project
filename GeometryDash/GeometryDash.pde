@@ -43,13 +43,9 @@ counter = new Counter(10);
 
 void draw() {
   
-  if (counter.reachedGoal()) {
-    drawRainbow();
-    fill(255);
-  textAlign(CENTER, CENTER);
-  textSize(80);
-  text("YOU WIN!", width/2, height/2);
-  return;
+if (counter.reachedGoal()) {
+    drawWinScreen();
+    return;
 }
 
 // Geometry Dash style background
@@ -112,22 +108,43 @@ if (!player.isAlive()) {
   noLoop();
 }}
 
-void drawRainbow() {
+void drawWinScreen() {
 
-  int stripeHeight = 50;
+  background(20, 0, 40);
 
-  for (int y = 0; y < height; y += stripeHeight) {
+  // Neon grid
+  stroke(100, 0, 255, 80);
 
-    float hue = (frameCount * 3 + y) % 255;
-
-    colorMode(HSB, 255);
-
-    fill(hue, 255, 255);
-
-    rect(0, y, width, stripeHeight);
+  for (int x = 0; x < width; x += 50) {
+    line(x, 0, x, height);
   }
 
-  colorMode(RGB, 255);
+  for (int y = 0; y < height; y += 50) {
+    line(0, y, width, y);
+  }
+
+  // Moving glowing blocks
+  noStroke();
+  fill(0, 255, 255, 120);
+
+  for (int i = 0; i < 10; i++) {
+    float x = (frameCount * 2 + i * 120) % width;
+    rect(x, 150 + i * 20, 40, 40);}
+
+  // Ground
+  fill(80);
+  rect(0, 550, width, 150);
+
+  // Win text
+  textAlign(CENTER, CENTER);
+
+  fill(255, 255, 0);
+  textSize(70);
+  text("YOU WIN!", width/2, 250);
+
+  fill(255);
+  textSize(30);
+  text("Thanks for playing", width/2, 340);
 }
 
 void keyPressed(){
