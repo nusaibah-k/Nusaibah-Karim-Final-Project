@@ -64,7 +64,12 @@ rect(0, 0, width, 550);
 
 // Spawn obstacle every 2 seconds
 // MAKE SLOWER
-if (frameCount % 120 == 0) {obstacles.add(new Spike(1200, 500, 50, 50));}
+if (frameCount % 120 == 0) {
+int obstacleType = (int)random(2);
+if (obstacleType == 0) {obstacles.add(new Spike(1200, 500, 50, 50));} 
+else {obstacles.add(new MovingObstacle(1200, 400, 50, 50));}
+
+}
 
 // Obstacles
   for (int i = 0; i < obstacles.size(); i++){
