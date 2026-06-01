@@ -4,9 +4,11 @@ Player player;
 ArrayList<Obstacle> obstacles;
 ArrayList<Particle> particles;
 Counter counter;
+int nextSpawn;
 
 void setup() {
 size(1200, 700);
+nextSpawn = (int)random(60, 180);
 player = new Player(150, 500);
 obstacles = new ArrayList<Obstacle>();
 particles = new ArrayList<Particle>();
@@ -72,13 +74,13 @@ rect(0, 0, width, 550);
 
   player.display();
 
-// Spawn obstacle every 2 seconds
-// MAKE SLOWER
-if (frameCount % 120 == 0) {
+if (frameCount >nextSpawn) {
 int obstacleType = (int)random(2);
 if (obstacleType == 0) {obstacles.add(new Spike(1200, 500, 50, 50));} 
 else {obstacles.add(new MovingObstacle(1200, 400, 50, 50));
   }
+  nextSpawn = frameCount + (int)random(60, 180);
+
 }
 
 for (int i = 0; i < obstacles.size(); i++) {
