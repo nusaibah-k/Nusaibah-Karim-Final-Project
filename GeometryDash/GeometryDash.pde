@@ -30,9 +30,7 @@ soundManager.playMusic();
         random(40, 90),
         random(40, 90),
         random(1, 3),
-        color(120, 0, 255, 80)
-      )
-    );
+        color(120, 0, 255, 80)));
   }
 
   for (int i = 0; i < 5; i++) {
@@ -43,10 +41,7 @@ soundManager.playMusic();
         random(60, 120),
         random(60, 120),
         random(0.5, 2),
-        color(0, 255, 255, 60)
-      )
-    );
-  }
+        color(0, 255, 255, 60)));}
 }
 
 void draw() {
@@ -57,8 +52,7 @@ if (counter.reachedGoal()) {
       soundManager.playWin();
       winPlayed = true;}
     drawWinScreen();
-    return;
-}
+    return;}
 
 if (!player.isAlive()) {
     if (!losePlayed) {
@@ -100,33 +94,23 @@ rect(0, 0, width, 550);
 if (frameCount >nextSpawn) {
 int obstacleType = (int)random(2);
 if (obstacleType == 0) {obstacles.add(new Spike(1200, 500, 50, 50));} 
-else {obstacles.add(new MovingObstacle(1200, 400, 50, 50));
-  }
-  nextSpawn = frameCount + (int)random(60, 180);
-
-}
+else {obstacles.add(new MovingObstacle(1200, 400, 50, 50));}
+  nextSpawn = frameCount + (int)random(60, 180);}
 
 for (int i = 0; i < obstacles.size(); i++) {
-
   Obstacle o = obstacles.get(i);
-
   o.update();
   o.display();
-
   // Collision
   if (o.collide(player)) {
     player.die();
   }
-
   // Obstacle passed off screen
   if (o.getX() + o.getWidth() < 0) {
     counter.addPoint();
     obstacles.remove(i);
-    i--;
-  }
-}
+    i--;}}
 counter.display();
-
 }
 
 void drawWinScreen() {
@@ -136,13 +120,9 @@ void drawWinScreen() {
   // Neon grid
   stroke(100, 0, 255, 80);
 
-  for (int x = 0; x < width; x += 50) {
-    line(x, 0, x, height);
-  }
+  for (int x = 0; x < width; x += 50) {line(x, 0, x, height);}
 
-  for (int y = 0; y < height; y += 50) {
-    line(0, y, width, y);
-  }
+  for (int y = 0; y < height; y += 50) {line(0, y, width, y);}
 
   // Moving glowing blocks
   noStroke();
@@ -158,7 +138,6 @@ void drawWinScreen() {
 
   // Win text
   textAlign(CENTER, CENTER);
-
   fill(255, 255, 0);
   textSize(70);
   text("YOU WIN!", width/2, 250);
@@ -179,19 +158,14 @@ void restartGame() {
   soundManager.playMusic();}
 
 
-
 void keyPressed() {
   if (player.isAlive() &&
-      (key == ' ' || keyCode == UP)) {
-    player.jump();
-  }
+      (key == ' ' || keyCode == UP)) {player.jump();}
 }
 
 void mousePressed() {
-
   if (!player.isAlive() &&
       restartButton.isClicked()) {
-
-    restartGame();
+        restartGame();
   }
 }
